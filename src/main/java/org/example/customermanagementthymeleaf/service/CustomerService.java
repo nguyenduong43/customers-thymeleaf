@@ -45,4 +45,14 @@ public class CustomerService implements ICustomerService{
     public void remove(int id) {
         customers.remove(id);
     }
+
+    @Override
+    public Customer search(String name) {
+        for(Customer customer : customers.values()) {
+            if(customer.getName().contains(name)) {
+               return customer;
+            }
+        }
+        return null;
+    }
 }
